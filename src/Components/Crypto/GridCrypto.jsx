@@ -20,6 +20,7 @@ const GridCrypto = () => {
 
   return (
     <>
+      <h1>Lista de Criptomonedas</h1>
       <div className="containerCryptos">
         {cryptos.map(({ id, name, priceUsd, changePercent24Hr, symbol }) => (
           <Crypto
@@ -28,6 +29,7 @@ const GridCrypto = () => {
             priceUsd={priceUsd}
             changePercent24Hr={changePercent24Hr}
             symbol={symbol}
+            id={id}
           />
         ))}
       </div>

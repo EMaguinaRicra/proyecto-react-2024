@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // eslint-disable-next-line react/prop-types
 function Crypto({ id, name, priceUsd, changePercent24Hr, symbol }) {
   return (
@@ -19,6 +21,8 @@ function Crypto({ id, name, priceUsd, changePercent24Hr, symbol }) {
           <br />
           <span className="info">Código: </span>
           <span>{symbol}</span>
+          <br />
+          <Link to={`/Cryptos/${id}`}>Ver detalles</Link>
         </div>
       </div>
     </>

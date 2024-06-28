@@ -7,11 +7,15 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: #151515;
+  margin: 2rem;
 }
 
 h1 {
-  text-align: center;
   color: antiquewhite;
+}
+
+a {
+  color: white;
 }
 
 .containerCryptos {
