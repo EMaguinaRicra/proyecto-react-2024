@@ -18,9 +18,7 @@ const PageCrypto = () => {
         setCrypto(data.data.data);
       })
       .catch((e) => console.error(e));
-  }, []);
 
-  useEffect(() => {
     axios
       .get(`${API_URL}assets/${params.id}/history?interval=d1`)
       .then((data) => {
