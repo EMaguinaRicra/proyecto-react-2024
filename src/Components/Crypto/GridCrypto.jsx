@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Crypto from "./Crypto";
 import axios from "axios";
+import "./GridCrypto.css";
 
 const GridCrypto = () => {
   const [cryptos, setCryptos] = useState([]);
