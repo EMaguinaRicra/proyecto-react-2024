@@ -18,6 +18,7 @@ const Login = () => {
   const submit = (e) => {
     e.preventDefault();
     setLoading(true); // Cuando se envía el formulario empieza el Loading
+    setError(null); // Avisa al usuario que se ha vuelto a enviar la petición
     axios
       // se usa una vez y no se usa una variable de entorno como en la API de Cryptos
       // Usar los datos de prueba de la API
