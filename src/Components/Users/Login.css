@@ -60,3 +60,11 @@ label {
   margin: 2em;
   border-radius: 5px;
 }
+
+.error {
+  background-color: tomato;
+  margin-top: 1rem;
+  line-height: 3;
+  padding: .25rem;
+  border-radius: .25rem;
+}

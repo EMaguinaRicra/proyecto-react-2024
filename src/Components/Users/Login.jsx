@@ -6,6 +6,10 @@ import "./Login.css";
 const Login = () => {
   const navigation = useNavigate();
 
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -13,15 +17,21 @@ const Login = () => {
 
   const submit = (e) => {
     e.preventDefault();
+    setLoading(true); // Cuando se envía el formulario empieza el Loading
     axios
       // se usa una vez y no se usa una variable de entorno como en la API de Cryptos
       // Usar los datos de prueba de la API
       .post(`https://reqres.in/api/login`, user)
       .then((data) => {
+        setLoading(false); // Cuando se termina el formulario termina el Loading
         localStorage.setItem("tokenEDMarket", data.data.token);
         navigation("/");
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        setLoading(false); // Cuando se envía el formulario empieza el Loading
+        console.error(e);
+        setError(e.response.data.error); // Setea especificamente el error
+      });
   };
 
   if (localStorage.getItem("tokenEDMarket")) return <Navigate to="/" />;
@@ -62,9 +72,22 @@ const Login = () => {
               />
             </div>
             <div className="submit">
-              <input type="submit" value="Ingresar" />
+              <input
+                type="submit"
+                value={loading ? "Cargando..." : "Ingresar"}
+                disabled={loading ? true : false}
+              />
             </div>
           </form>
+
+          {error && (
+            <span className="error">
+              Error:
+              {
+                error // Imprime el error que se seteo arriba en el useState
+              }
+            </span>
+          )}
         </div>
       </div>
     </>
