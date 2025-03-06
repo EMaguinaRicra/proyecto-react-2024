@@ -5,8 +5,9 @@ import App from "./Components/App.jsx";
 import GridCrypto from "./Components/Crypto/GridCrypto.jsx";
 import Home from "./Components/Home.jsx";
 import PageCrypto from "./Components/Crypto/PageCrypto.jsx";
-import Perfil from "./Perfil.jsx";
+import Perfil from "./Components/Users/Perfil.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
+import Login from "./Components/Users/Login.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <UserContextProvider>
@@ -21,6 +22,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route index element={<GridCrypto />} />
           <Route path=":id" element={<PageCrypto />}></Route>
         </Route>
+
+        <Route path="/login" element={<Login />} />
 
         <Route path="*" element={<Page404 />} />
       </Routes>
